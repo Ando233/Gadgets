@@ -15,7 +15,7 @@ def cal_single_gpa(x, mode):
 
 
 def get_add_gpa():
-    return 0.174 * 0.2 + (0.0116 + 0.0087 * 2) * 0.2 + 0.1044 * 0.5
+    return 0.174 * 0.2 + (0.0232 + 0.0087 * 2) * 0.2 + 0.0696 * 0.5
 
 
 if __name__ == '__main__':
@@ -24,13 +24,11 @@ if __name__ == '__main__':
     mode = 1
     all_score = dict(list(main_score.items()) + list(not_main_score.items()))
 
-    all_expect_score = dict(list(main_score.items()) + list(expected_score.items()))
-    for name, score in all_expect_score.items():
+    for name, score in main_score.items():
         if "博雅" in name:
             mode = 2
         else:
             mode = 1
-
         weight = all_weight[name]
         single_gpa = cal_single_gpa(score, mode)
         all_gpa_score += single_gpa * weight
